@@ -1,0 +1,18 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'tarobot'
+      MYSQL_USER: 'tarobot'
+      MYSQL_PASSWORD: 'tarobot777cards'
+      MYSQL_ROOT_PASSWORD: 'root_password'
+    ports:
+      - '3307:3306'
